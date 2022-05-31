@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5434/dbsium-target
+    username: dbsium-user
+    password: dbsium-pass
+
+debezium:
+  database:
+    hostname: localhost
+    port: 5433
+    name: dbsium-source
+    user: dbsium-user
+    password: dbsium-pass
+    table: public.thing
