@@ -1,0 +1,22 @@
+services:
+  source-postgres:
+    container_name: dbsium-source-postgres
+    image: postgres
+    environment:
+      POSTGRES_DB: dbsium-source
+      POSTGRES_USER: dbsium-user
+      POSTGRES_PASSWORD: dbsium-pass
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./postgres/postgres.conf:/etc/postgresql/postgresql.conf
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf
+  target-postgres:
+    container_name: dbsium-target-postgres
+    image: postgres
+    environment:
+      POSTGRES_DB: dbsium-target
+      POSTGRES_USER: dbsium-user
+      POSTGRES_PASSWORD: dbsium-pass
+    ports:
+      - "5434:5432"
